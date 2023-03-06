@@ -1,10 +1,10 @@
 package db
 
 import (
-	"common/config"
-	commonLoger "common/loger"
-	"common/utils"
 	"fmt"
+	"github.com/lijianjunljj/gmfcommon/config"
+	commonLoger "github.com/lijianjunljj/gmfcommon/loger"
+	"github.com/lijianjunljj/gmfcommon/utils"
 	gormMysql "gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	gormLogger "gorm.io/gorm/logger"

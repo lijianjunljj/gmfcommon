@@ -1,10 +1,10 @@
 package server
 
 import (
-	"common/config"
-	commondb "common/db"
-	"common/router"
 	"fmt"
+	"github.com/lijianjunljj/gmfcommon/config"
+	commondb "github.com/lijianjunljj/gmfcommon/db"
+	"github.com/lijianjunljj/gmfcommon/router"
 	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/registry"
 	"github.com/micro/go-micro/v2/registry/etcd"

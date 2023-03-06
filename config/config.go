@@ -1,7 +1,7 @@
 package config
 
 import (
-	"gmf/src/common/config/parser"
+	"github.com/lijianjunljj/gmfcommon/config/parser"
 )
 
 type Config struct {

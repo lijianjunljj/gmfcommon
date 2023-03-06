@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"common/config"
+	"github.com/lijianjunljj/gmfcommon/config"
 	"time"
 )
 

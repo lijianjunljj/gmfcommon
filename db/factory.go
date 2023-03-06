@@ -1,8 +1,8 @@
 package db
 
 import (
-	"common/config"
 	"fmt"
+	"github.com/lijianjunljj/gmfcommon/config"
 	"gorm.io/gorm"
 )
 

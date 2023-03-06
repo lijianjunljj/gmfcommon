@@ -1,10 +1,10 @@
 package server
 
 import (
-	"common/config"
-	"common/router"
 	"errors"
 	"fmt"
+	"github.com/lijianjunljj/gmfcommon/config"
+	"github.com/lijianjunljj/gmfcommon/router"
 )
 
 type Manager struct {
