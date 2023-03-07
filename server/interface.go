@@ -10,7 +10,7 @@ import (
 
 type AbstractServer interface {
 	BeforeRun(*config.Config) micro.Service
-	Run(*config.Config) error
+	Run(*config.Config, ...interface{}) error
 	GetName() string
 	GetServiceName() string
 	ServiceClient() interface{}
