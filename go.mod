@@ -1,11 +1,10 @@
-module gmfcommon
+module github.com/lijianjunljj/gmfcommon
 
 go 1.17
 
 require (
 	github.com/afex/hystrix-go v0.0.0-20180502004556-fa1af6a1f4f5
 	github.com/gin-gonic/gin v1.9.0
-	github.com/lijianjunljj/gmfcommon v1.0.3
 	github.com/micro/go-micro/v2 v2.9.1
 	github.com/olebedev/config v0.0.0-20220822221314-86fa169f9f99
 	golang.org/x/sync v0.1.0
