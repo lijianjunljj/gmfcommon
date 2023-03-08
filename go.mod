@@ -8,6 +8,7 @@ require (
 	github.com/asim/go-micro/v3 v3.7.1
 	github.com/gin-gonic/gin v1.9.0
 	github.com/olebedev/config v0.0.0-20220822221314-86fa169f9f99
+	github.com/satori/go.uuid v1.2.0
 	golang.org/x/sync v0.1.0
 	gopkg.in/ini.v1 v1.67.0
 	gorm.io/driver/mysql v1.4.7

@@ -20,6 +20,10 @@ func NewConfig(parser parser.Parser) *Config {
 	}
 	return config
 }
+func (c *Config) GetString(opts ...string) string {
+	return c.parser.GetString(opts...)
+}
+
 func (c *Config) InitEtcd() {
 	registryAddr := c.parser.GetString("etcd", "registryAddr")
 	etcdConf := NewEtcdOptions(RegistryAddr(registryAddr))

@@ -41,14 +41,14 @@ func (sm *Manager) Routers() []router.AbstractRouter {
 }
 
 func (sm *Manager) Clients() []interface{} {
-	var clients []interface{}
+	var servers []interface{}
 	for _, server := range sm.servers {
-		client := server.ServiceClient()
-		fmt.Println("clientS:", client)
-		clients = append(clients, client)
+		//server := server.ServiceClient()
+		fmt.Println("serverS:", server)
+		servers = append(servers, server)
 	}
-	fmt.Println("clients:", clients)
-	return clients
+	fmt.Println("servers:", servers)
+	return servers
 }
 
 func (sm *Manager) Register(servers ...AbstractServer) *Manager {

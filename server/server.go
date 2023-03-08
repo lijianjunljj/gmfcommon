@@ -21,6 +21,7 @@ type Server struct {
 	ClientService   micro.Service
 	Service         interface{}
 	WebRouter       router.AbstractRouter
+	AutoAutoMigrateTables   []interface{}
 }
 
 func (s *Server) BeforeRun(config *config.Config) micro.Service {
@@ -44,10 +45,10 @@ func (s *Server) GetWebRouter() router.AbstractRouter {
 	return s.WebRouter
 }
 
-func (s *Server) Run(config *config.Config, tables ...interface{}) error {
+func (s *Server) Run(config *config.Config) error {
 	commondb.Init(config.DbType, func() interface{} {
 		return config.Mysql
-	}, tables...)
+	}, s.AutoAutoMigrateTables...)
 	microService := s.BeforeRun(config)
 	// 服务注册
 	if s.ServiceCallFunc != nil {
