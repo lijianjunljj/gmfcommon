@@ -2,13 +2,12 @@ package server
 
 import (
 	"fmt"
+	"github.com/asim/go-micro/plugins/registry/etcd/v3"
+	"github.com/asim/go-micro/v3"
+	"github.com/asim/go-micro/v3/registry"
 	"github.com/lijianjunljj/gmfcommon/config"
 	commondb "github.com/lijianjunljj/gmfcommon/db"
 	"github.com/lijianjunljj/gmfcommon/router"
-	"github.com/micro/go-micro/v2"
-	"github.com/micro/go-micro/v2/registry"
-	"github.com/micro/go-micro/v2/registry/etcd"
-	//"gmf/src/servers/user/services"
 	"golang.org/x/sync/errgroup"
 )
 
@@ -79,6 +78,7 @@ func (s *Server) ServiceClient() interface{} {
 }
 
 func (s *Server) EtcdReg(options *config.EtcdOptions) registry.Registry {
+
 	etcdReg := etcd.NewRegistry(
 		registry.Addrs(options.RegistryAddr),
 	)

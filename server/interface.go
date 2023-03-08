@@ -1,10 +1,10 @@
 package server
 
 import (
+	"github.com/asim/go-micro/v3"
+	"github.com/asim/go-micro/v3/registry"
 	"github.com/lijianjunljj/gmfcommon/config"
 	"github.com/lijianjunljj/gmfcommon/router"
-	"github.com/micro/go-micro/v2"
-	"github.com/micro/go-micro/v2/registry"
 	"golang.org/x/sync/errgroup"
 )
 

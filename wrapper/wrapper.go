@@ -3,7 +3,7 @@ package wrapper
 import (
 	"context"
 	"github.com/afex/hystrix-go/hystrix"
-	"github.com/micro/go-micro/v2/client"
+	"github.com/asim/go-micro/v3/client"
 	"time"
 )
 
