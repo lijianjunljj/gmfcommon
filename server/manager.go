@@ -86,9 +86,9 @@ func (sm *Manager) Run(name string, config *config.Config) error {
 }
 func (sm *Manager) RunAll(config *config.Config) {
 	for _, s := range sm.servers {
-
-		s.ErrGroup().Go(func() error {
-			return s.Run(config)
+		server := s
+		server.ErrGroup().Go(func() error {
+			return server.Run(config)
 		})
 	}
 }
