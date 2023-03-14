@@ -8,7 +8,7 @@ type Config struct {
 	Mysql   *MysqlOptions
 	Etcd    *EtcdOptions
 	Web     *WebOptions
-	Redis    *RedisOptions
+	Redis   *RedisOptions
 	Service *ServiceOptions
 	parser  parser.Parser
 	DbType  string
@@ -25,13 +25,13 @@ func (c *Config) GetString(opts ...string) string {
 	return c.parser.GetString(opts...)
 }
 
-func (c *Config) InitEtcd() *Config{
+func (c *Config) InitEtcd() *Config {
 	registryAddr := c.parser.GetString("etcd", "registryAddr")
 	etcdConf := NewEtcdOptions(RegistryAddr(registryAddr))
 	c.Etcd = &etcdConf
 	return c
 }
-func (c *Config) InitService(serverName string) *Config{
+func (c *Config) InitService(serverName string) *Config {
 	serviceName := c.parser.GetString("servers", serverName, "serviceName")
 	address := c.parser.GetString("servers", serverName, "address")
 	serviceConf := NewServiceOptions(ServiceName(serviceName), Address(address))
@@ -39,18 +39,18 @@ func (c *Config) InitService(serverName string) *Config{
 	return c
 }
 
-func (c *Config) InitWeb() *Config{
+func (c *Config) InitWeb() *Config {
 	protocol := c.parser.GetString("gateway", "protocol")
 	addr := c.parser.GetString("gateway", "addr")
 	webConf := NewWebOptions(Protocol(protocol), Addr(addr))
 	c.Web = &webConf
 	return c
 }
-func (c *Config) InitDbType() *Config{
+func (c *Config) InitDbType() *Config {
 	c.DbType = c.parser.GetString("db_type")
 	return c
 }
-func (c *Config) InitMysql() *Config{
+func (c *Config) InitMysql() *Config {
 	//fmt.Println("c.parser", c.parser)
 	db := c.parser.GetString("mysql", "Db")
 	//fmt.Println("db", db)
@@ -86,7 +86,7 @@ func (c *Config) InitRedis() {
 	dbfile := c.parser.GetString("redis", "dbfile")
 	redisConf := NewRedisOptions(RedisAddr(addr), RedisMaxidle(maxidle), RedisMaxActive(maxactive),
 		RedisMaxIdleTimeout(maxidletimeout), RedisTimeout(timeout), RedisPassword(password), RedisDbcachePublic(dbcachepublic),
-		RedisDbauthUser(dbauthuser), RedisDbcacheUser(dbcacheuser), RedisDbcacheAdmin(dbcacheadmin),RedisDbFile(dbfile)
+		RedisDbauthUser(dbauthuser), RedisDbcacheUser(dbcacheuser), RedisDbcacheAdmin(dbcacheadmin), RedisDbFile(dbfile),
 	)
 	//fmt.Println("mysqlConf:", mysqlConf)
 	c.Redis = &redisConf

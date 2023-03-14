@@ -13,16 +13,16 @@ import (
 
 type Server struct {
 	AbstractServer
-	G               *errgroup.Group
-	ServiceCallFunc func(microService micro.Service)
-	AfterRun func(error)
-	Config          *config.Config
-	Name            string
-	ServiceName     string
-	ClientService   micro.Service
-	Service         interface{}
-	WebRouter       router.AbstractRouter
-	AutoAutoMigrateTables   []interface{}
+	G                     *errgroup.Group
+	ServiceCallFunc       func(microService micro.Service)
+	AfterRun              func(error, interface{})
+	Config                *config.Config
+	Name                  string
+	ServiceName           string
+	ClientService         micro.Service
+	Service               interface{}
+	WebRouter             router.AbstractRouter
+	AutoAutoMigrateTables []interface{}
 }
 
 func (s *Server) BeforeRun(config *config.Config) micro.Service {
@@ -59,7 +59,7 @@ func (s *Server) Run(config *config.Config) error {
 	// 启动微服务
 	err := microService.Run()
 	if s.ServiceCallFunc != nil {
-		s.AfterRun(err)
+		s.AfterRun(err, s.Service)
 	}
 
 	return nil
