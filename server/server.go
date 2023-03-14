@@ -15,6 +15,7 @@ type Server struct {
 	AbstractServer
 	G               *errgroup.Group
 	ServiceCallFunc func(microService micro.Service)
+	AfterRun func(error)
 	Config          *config.Config
 	Name            string
 	ServiceName     string
@@ -56,7 +57,11 @@ func (s *Server) Run(config *config.Config) error {
 	}
 
 	// 启动微服务
-	_ = microService.Run()
+	err := microService.Run()
+	if s.ServiceCallFunc != nil {
+		s.AfterRun(err)
+	}
+
 	return nil
 }
 func (s *Server) ErrGroup() *errgroup.Group {

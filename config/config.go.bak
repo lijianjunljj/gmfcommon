@@ -71,23 +71,3 @@ func (c *Config) InitMysql() *Config{
 	c.Mysql = &mysqlConf
 	return c
 }
-
-func (c *Config) InitRedis() {
-	addr := c.parser.GetString("redis", "addr")
-	maxidle := c.parser.GetString("redis", "maxidle")
-	maxactive := c.parser.GetString("redis", "maxactive")
-	maxidletimeout := c.parser.GetString("redis", "maxidletimeout")
-	timeout := c.parser.GetString("redis", "timeout")
-	password := c.parser.GetString("redis", "password")
-	dbcachepublic := c.parser.GetString("redis", "dbcachepublic")
-	dbauthuser := c.parser.GetString("redis", "dbauthuser")
-	dbcacheuser := c.parser.GetString("redis", "dbcacheuser")
-	dbcacheadmin := c.parser.GetString("redis", "dbcacheadmin")
-	dbfile := c.parser.GetString("redis", "dbfile")
-	redisConf := NewRedisOptions(RedisAddr(addr), RedisMaxidle(maxidle), RedisMaxActive(maxactive),
-		RedisMaxIdleTimeout(maxidletimeout), RedisTimeout(timeout), RedisPassword(password), RedisDbcachePublic(dbcachepublic),
-		RedisDbauthUser(dbauthuser), RedisDbcacheUser(dbcacheuser), RedisDbcacheAdmin(dbcacheadmin),RedisDbFile(dbfile)
-	)
-	//fmt.Println("mysqlConf:", mysqlConf)
-	c.Redis = &redisConf
-}
